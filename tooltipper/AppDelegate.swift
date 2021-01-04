@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  tooltipper
 //
-//  Created by Paul Wiseman on 04/01/2021.
+//  Created by Paul on 04/01/2021.
 //  Copyright © 2021 Paul. All rights reserved.
 //
 

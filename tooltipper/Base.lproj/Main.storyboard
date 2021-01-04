@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.3"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="tooltipper" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +704,102 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="tooltipper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" translatesAutoresizingMaskIntoConstraints="NO" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="560" height="400"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="30" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="duR-h1-yxh">
+                                <rect key="frame" x="30" y="144" width="500" height="113"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KiQ-LM-6It">
+                                        <rect key="frame" x="-2" y="97" width="504" height="16"/>
+                                        <string key="toolTip">Tooltip LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel </string>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" id="mgv-gA-yNI">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <string key="title">Tooltip LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel </string>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A0v-om-G3v">
+                                        <rect key="frame" x="-2" y="51" width="504" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingMiddle" title="ExpansionTooltip LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel LongLabel" id="Zwe-uu-5oi">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yIy-GE-Xpr">
+                                        <rect key="frame" x="-6" y="-7" width="512" height="32"/>
+                                        <buttonCell key="cell" type="push" title="Popover" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LM8-SF-8Hc">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="popoverButton:" target="XfG-lQ-9wD" id="WR0-Au-VUz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="K2D-w2-TXp"/>
+                                    <constraint firstAttribute="trailing" secondItem="KiQ-LM-6It" secondAttribute="trailing" id="PYS-es-uQO"/>
+                                    <constraint firstItem="yIy-GE-Xpr" firstAttribute="centerX" secondItem="duR-h1-yxh" secondAttribute="centerX" id="nW6-im-8BZ"/>
+                                    <constraint firstItem="KiQ-LM-6It" firstAttribute="leading" secondItem="duR-h1-yxh" secondAttribute="leading" id="ypI-8W-FxV"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <box hidden="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="70n-XI-KBV">
+                                <rect key="frame" x="60" y="60" width="440" height="280"/>
+                                <view key="contentView" id="cSn-kF-eIw">
+                                    <rect key="frame" x="1" y="1" width="438" height="278"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IBu-7L-eFx">
+                                            <rect key="frame" x="339" y="23" width="75" height="32"/>
+                                            <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SbL-FZ-76i">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="popoverCloseButton:" target="XfG-lQ-9wD" id="tjZ-Kz-coW"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="IBu-7L-eFx" secondAttribute="trailing" constant="30" id="9mA-pK-iYs"/>
+                                        <constraint firstAttribute="bottom" secondItem="IBu-7L-eFx" secondAttribute="bottom" constant="30" id="FDY-Rp-gJD"/>
+                                    </constraints>
+                                </view>
+                                <color key="fillColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="70n-XI-KBV" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="60" id="IbR-r9-CRJ"/>
+                            <constraint firstAttribute="bottom" secondItem="70n-XI-KBV" secondAttribute="bottom" constant="60" id="T7C-J0-tkp"/>
+                            <constraint firstItem="70n-XI-KBV" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="60" id="TQ1-2c-SFe"/>
+                            <constraint firstAttribute="trailing" secondItem="70n-XI-KBV" secondAttribute="trailing" constant="60" id="eTI-yd-rcJ"/>
+                            <constraint firstAttribute="trailing" secondItem="duR-h1-yxh" secondAttribute="trailing" constant="30" id="gEc-jH-5Wx"/>
+                            <constraint firstItem="duR-h1-yxh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="30" id="nLa-tw-nTp"/>
+                            <constraint firstItem="duR-h1-yxh" firstAttribute="centerY" secondItem="m2S-Jp-Qdl" secondAttribute="centerY" id="tBV-L1-iaN"/>
+                            <constraint firstAttribute="height" constant="400" id="uaw-ln-WXl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="popover" destination="70n-XI-KBV" id="Ga7-zl-c1e"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="863.5"/>
         </scene>
     </scenes>
 </document>
